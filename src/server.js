@@ -5,6 +5,7 @@ import { join } from "path";
 import * as dotenv from "dotenv";
 
 import postsRouter from "./posts/index.js";
+import filesRouter from "./files/index.js";
 import {
   badRequestHandler,
   genericErrorHandler,
@@ -24,6 +25,7 @@ server.use(cors());
 server.use(express.json());
 
 server.use("/blogposts", postsRouter);
+server.use("/blogposts/uploadCover", filesRouter);
 
 server.use(badRequestHandler);
 server.use(unauthorizedHandler);
